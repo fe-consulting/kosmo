@@ -1,0 +1,27 @@
+<div fxFlex="0 0 400px" fxLayout="column" fxLayoutGap="30px">
+    <div fxFlex>
+        <h2>Progress Timer</h2>
+    </div>
+
+    <div fxFlex>
+        <k-progress-timer #timer [time]="time"></k-progress-timer>
+    </div>
+
+    <div fxFlex fxLayoutGap="20px">
+        <button kButton (click)="pause()">
+            Pause
+        </button>
+
+        <button kButton (click)="resume()">
+            Resume
+        </button>
+
+        <button kButton (click)="start()">
+            Start
+        </button>
+
+        <button kButton (click)="reset()">
+            Reset
+        </button>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutGap="50px">
+    <div>
+        <h2>Tabs</h2>
+
+        <k-tabs>
+            <k-tab [heading]="'Tab 1'" (deselect)="deselected($event)" (select)="selected($event)">
+                Tab Content 1
+            </k-tab>
+
+            <k-tab [heading]="'Tab 2'" (deselect)="deselected($event)" (select)="selected($event)">
+                Tab Content 2
+            </k-tab>
+
+            <k-tab [heading]="'Tab 3'" (deselect)="deselected($event)" (select)="selected($event)">
+                Tab Content 3
+            </k-tab>
+        </k-tabs>
+    </div>
+
+    <div>
+        <h2>Expansion Tabs</h2>
+
+        <k-expansion-tabs>
+            <k-expansion-tab [heading]="'Ciao'">
+                Hello
+            </k-expansion-tab>
+
+            <k-expansion-tab [heading]="'Sciao'">
+                Hello 2
+            </k-expansion-tab>
+        </k-expansion-tabs>
+    </div>
+</div>

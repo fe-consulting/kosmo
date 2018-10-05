@@ -1,0 +1,15 @@
+@import "palette";
+
+$tab-headings-theme: (
+    gap: 10px,
+    padding: 0.8rem 1rem,
+    border-style: solid,
+    border-width: 3px,
+    accent: $blue,
+    color-hover: darken($black-dark, 10%)
+);
+
+$tab-content-theme: (
+    top: 1rem,
+    position: relative
+);

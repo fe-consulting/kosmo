@@ -1,0 +1,88 @@
+@import 'variables';
+
+$button-padding: 0.5rem 1rem !default;
+$button-font-size: 13px !default;
+$button-font-weight: 500 !default;
+
+$button-base-theme: (
+	border-radius: 0,
+	font-size: $button-font-size,
+	font-weight: $button-font-weight,
+	padding: $button-padding,
+) !default;
+
+$button-default-theme: (
+	background: $bg,
+	background-active: $bg-darker,
+	color: $color-primary,
+	color-hover: $color-primary-darker,
+	box-shadow: $box-shadow-base,
+	box-shadow-hover: $box-shadow-md,
+	box-shadow-active: $box-shadow-lg,
+	cursor: pointer,
+) !default;
+
+$button-variation-base-theme: (
+	color: $white,
+	color-hover: $white,
+	cursor: pointer,
+);
+
+$button-danger-theme: map-merge(
+	$button-variation-base-theme,
+	(
+		background: $red,
+		background-hover: lighten($red, 10%),
+		background-active: darken($red, 10%),
+	)
+) !default;
+
+$button-primary-theme: map-merge(
+	$button-variation-base-theme,
+	(
+		background: $blue,
+		background-hover: lighten($blue, 10%),
+		background-active: darken($blue, 10%),
+	)
+) !default;
+
+$button-link-theme: (
+	background: transparent,
+	background-active: transparent,
+	color: $color-primary,
+	color-hover: $color-primary-darker,
+	box-shadow: none,
+	box-shadow-hover: none,
+) !default;
+
+$button-disabled-theme: (
+	background: $bg-darker,
+	color: lighten($color-primary, 15%),
+	color-hover: lighten($color-primary, 15%),
+	cursor: not-allowed,
+) !default;
+
+$button-group-base-theme: (
+	box-shadow: $box-shadow-base-vertical,
+) !default;
+
+$button-group-default-theme: map-merge(
+	$button-group-base-theme,
+	(
+		border-color: #fff,
+	)
+) !default;
+
+$button-group-primary-theme: map-merge(
+	$button-group-base-theme,
+	(
+		border-color: lighten($blue, 10%),
+	)
+) !default;
+
+$button-group-danger-theme: map-merge(
+	$button-group-base-theme,
+	(
+		border-color: lighten($red, 10%),
+	)
+) !default;

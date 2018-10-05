@@ -1,0 +1,44 @@
+@import "button-mixin";
+@import "button-theme";
+
+[k-button] {
+    @include button-mixin-base($button-base-theme);
+    @include button-variation($button-default-theme);
+}
+
+[k-button].danger {
+    @include button-variation($button-danger-theme);
+}
+
+[k-button].primary {
+    @include button-variation($button-primary-theme);
+}
+
+[k-button].link {
+    @include button-variation($button-link-theme);
+}
+
+[k-button][disabled] {
+    @include button-variation($button-disabled-theme);
+}
+
+k-button-group, [k-button-group] {
+     [k-button] {
+         @include button-group($button-group-default-theme);
+     }
+
+     [k-button].primary {
+         @include button-group($button-group-primary-theme);
+     }
+
+     [k-button].danger {
+         @include button-group($button-group-danger-theme);
+     }
+}
+
+[k-button] [k-checkbox],
+[k-button] k-checkbox,
+k-button [k-checkbox],
+k-button k-checkbox {
+    display: none;
+}

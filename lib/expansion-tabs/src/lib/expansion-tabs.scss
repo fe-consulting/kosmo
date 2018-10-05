@@ -1,0 +1,6 @@
+@import "expansion-tabs-mixin";
+@import "expansion-tabs-theme";
+
+k-expansion-tabs {
+    @include expansion-tab($expansion-tabs-theme);
+}

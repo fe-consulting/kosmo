@@ -1,0 +1,62 @@
+@import "palette";
+@import "variables";
+
+$checkbox-size: 20px;
+
+k-checkbox input,
+[k-checkbox] input {
+    display: none;
+}
+
+k-checkbox .material-icons,
+[k-checkbox] .material-icons {
+	display: none;
+	color: $white;
+    font-size: 18px;
+    text-align: center;
+    height: $checkbox-size;
+    line-height: $checkbox-size;
+}
+
+.k-checkbox-indicator {
+	cursor: pointer;
+	display: inline-block;
+	width: $checkbox-size;
+	height: $checkbox-size;
+	box-shadow: $box-shadow-base;
+	background: $white;
+	margin-right: 10px;
+	transition: all 0.35s;
+
+	&:hover {
+		background: $bg-darker;
+	}
+}
+
+k-checkbox.active,
+[k-checkbox].active {
+    .k-checkbox-indicator {
+		background: $blue;
+
+		&:hover {
+			background: lighten($blue, 10%);
+		}
+	}
+
+	.material-icons {
+		display: block;
+	}
+}
+
+k-checkbox span,
+[k-checkbox] span {
+	line-height: $checkbox-size;
+	vertical-align: top;
+}
+
+k-checkbox.disabled,
+[k-checkbox].disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}

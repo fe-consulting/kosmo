@@ -1,0 +1,24 @@
+@import "tabs-mixin";
+@import "tabs-theme";
+
+k-tabs {
+    .tabset {
+        display: flex;
+    }
+
+    .tab {
+        @include tab-heading($tab-headings-theme);
+    }
+
+    .tab-content {
+        @include tab-content($tab-content-theme);
+    }
+
+    k-tab {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}

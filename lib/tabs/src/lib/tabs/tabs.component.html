@@ -1,0 +1,15 @@
+<div class="tabset">
+    <div *ngFor="let tab of tabs"
+         class="tab"
+         role="button"
+         [class.active]="tab.active"
+         (click)="tabClicked(tab)">
+        <span>
+            {{ tab.heading }}
+        </span>
+    </div>
+</div>
+
+<div class="tab-content">
+    <ng-content></ng-content>
+</div>

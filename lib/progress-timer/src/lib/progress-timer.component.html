@@ -1,0 +1,8 @@
+<div class="timer" [style.width.%]="(percent$ | async)">
+    <time-display
+        *ngIf="displayTime"
+        class="time"
+        [seconds]="(seconds$ | async)"
+        [minutes]="(minutes$ | async)">
+    </time-display>
+</div>

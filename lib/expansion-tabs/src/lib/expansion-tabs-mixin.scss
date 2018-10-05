@@ -1,0 +1,40 @@
+@mixin expansion-tab($theme) {
+    .tab {
+        box-shadow: map-get($theme, 'box-shadow');
+        transition: all 0.3s;
+        background: map-get($theme, 'background');
+        cursor: pointer;
+
+        .heading {
+            line-height: map-get($theme, 'line-height');
+            font-size: map-get($theme, 'font-size');
+            font-weight: map-get($theme, 'font-weight');
+            padding: map-get($theme, 'padding');
+
+            &:hover {
+                background: #f9f9f9;
+            }
+        }
+
+        &.active {
+            margin: 1rem 0;
+        }
+    }
+
+    .arrow {
+        float: right;
+
+        svg {
+            transition: transform 0.3s;
+        }
+    }
+
+    .active .arrow svg {
+        transform: rotate(180deg);
+    }
+
+    .tab-content {
+        background: #fff;
+        padding: map-get($theme, 'padding');
+    }
+}

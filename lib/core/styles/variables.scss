@@ -1,0 +1,12 @@
+@import 'palette';
+
+$bg: $white;
+$bg-darker: $white-dark;
+$color-primary: $black;
+$color-primary-darker: $black-dark;
+
+$box-shadow: 0 1px 3px 0;
+$box-shadow-base: $box-shadow rgba(0, 0, 0, 0.3);
+$box-shadow-md: $box-shadow rgba(0, 0, 0, 0.35);
+$box-shadow-lg: $box-shadow rgba(0, 0, 0, 0.5);
+$box-shadow-base-vertical: 0 0 1px 0 rgba(0, 0, 0, 0.2);

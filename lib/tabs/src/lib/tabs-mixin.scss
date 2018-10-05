@@ -1,0 +1,17 @@
+@mixin tab-heading($theme) {
+    margin-right: map-get($theme, 'gap');
+    padding: map-get($theme, 'padding');
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &.active,
+    &:hover {
+        border-bottom: map-get($theme, 'border-width') map-get($theme, 'border-style') map-get($theme, 'accent');
+        color: map-get($theme, 'color-hover')
+    }
+}
+
+@mixin tab-content($theme) {
+    position: map-get($theme, 'position');
+    top: map-get($theme, 'top');
+}

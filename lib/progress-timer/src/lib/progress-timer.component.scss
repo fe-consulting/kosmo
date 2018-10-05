@@ -1,0 +1,38 @@
+@import "palette";
+
+:host {
+    display: block;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    background: $white-dark;
+}
+
+.timer {
+    height: 1px;
+    background: #3ba2ff;
+    transition: all 0.1s;
+    position: relative;
+}
+
+.timer::after {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    width: 5px;
+    height: 5px;
+    background: #3ba2ff;
+    content: '';
+    border-radius: 100%;
+    position: absolute;
+    right: -2.5px;
+    top: -1.5px;
+}
+
+.timer .time {
+    margin: 10px -10px 0 0;
+    font-size: 11px;
+    font-weight: 100;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+}

@@ -1,0 +1,24 @@
+<div class="tabset">
+    <ng-container *ngFor="let tab of tabs">
+        <div class="tab"
+             role="button"
+             [class.active]="tab.active"
+             (click)="click(tab)">
+            <div class="heading">
+                <span>{{ tab.heading }}</span>
+
+                <!-- ARROW -->
+                <div class="arrow">
+                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                        <path d="M0-.75h24v24H0z" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="tab-content" *ngIf="tab.active">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,43 @@
+@mixin button-reset() {
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin button-mixin-base($theme) {
+    @include button-reset();
+
+    padding: map-get($theme, 'padding');
+    border-radius: map-get($theme, 'border-radius');
+    transition: 0.35s all;
+
+    font-weight: map-get($theme, 'font-weight');
+    font-size: map-get($theme, 'font-size');
+}
+
+@mixin button-variation($theme) {
+    background: map-get($theme, 'background');
+    color: map-get($theme, 'color');
+    box-shadow: map-get($theme, 'box-shadow');
+    cursor: map-get($theme, 'cursor');
+
+    &:active {
+        background: map-get($theme, 'background-active');
+        box-shadow: map-get($theme, 'box-shadow-active');
+    }
+
+    &:hover {
+        color: map-get($theme, 'color-hover');
+        background: map-get($theme, 'background-hover');
+        box-shadow: map-get($theme, 'box-shadow-hover');
+    }
+}
+
+@mixin button-group($theme) {
+    box-shadow: map-get($theme, 'box-shadow');
+    border-right: 1px solid map-get($theme, 'border-color');
+
+    &:hover {
+        box-shadow: map-get($theme, 'box-shadow');
+    }
+}
