@@ -9,10 +9,19 @@
 
     padding: map-get($theme, 'padding');
     border-radius: map-get($theme, 'border-radius');
-    transition: 0.35s all;
+    transition: background 0.35s;
 
     font-weight: map-get($theme, 'font-weight');
     font-size: map-get($theme, 'font-size');
+
+	&.lg {
+		font-size: map-get($theme, 'font-size-lg');
+		padding: map-get($theme, 'padding-lg');
+	}
+
+	&.sm {
+		font-size: map-get($theme, 'font-size-sm');
+	}
 }
 
 @mixin button-variation($theme) {

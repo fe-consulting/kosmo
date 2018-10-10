@@ -1,23 +1,30 @@
-import {EventEmitter, HostBinding, Input, Output} from "@angular/core";
+import { EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
 export abstract class Tab {
-    private _active = false;
+	private _active = false;
 
-    @Input() public heading: string;
+	@Input()
+	public readonly heading: string;
 
-    @Output() private select = new EventEmitter();
-    @Output() private deselect = new EventEmitter();
+	@Output()
+	private readonly select = new EventEmitter();
 
-    @HostBinding('class.active')
-    public get active() {
-        return this._active;
-    }
+	@Output()
+	private readonly deselect = new EventEmitter();
 
-    public set active(active: boolean) {
-        this._active = active;
-    }
+	@HostBinding('class.active')
+	public get isActive() {
+		return this._active;
+	}
 
-    private emit() {
-        (this.active ? this.select : this.deselect).emit(this);
-    }
+	@Input()
+	public set active(active: boolean) {
+		this._active = active;
+
+		this.emit();
+	}
+
+	private emit() {
+		(this.isActive ? this.select : this.deselect).emit(this);
+	}
 }

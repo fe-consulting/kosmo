@@ -1,14 +1,20 @@
 @import 'variables';
 
 $button-padding: 0.5rem 1rem !default;
-$button-font-size: 13px !default;
+$button-padding-lg: 0.75rem 1.25rem !default;
+$button-font-size: 14px !default;
+$button-font-size-sm: 11px !default;
+$button-font-size-lg: 20px !default;
 $button-font-weight: 500 !default;
 
 $button-base-theme: (
 	border-radius: 0,
 	font-size: $button-font-size,
+	font-size-sm: $button-font-size-sm,
+	font-size-lg: $button-font-size-lg,
 	font-weight: $button-font-weight,
 	padding: $button-padding,
+	padding-lg: $button-padding-lg
 ) !default;
 
 $button-default-theme: (

@@ -1,73 +1,100 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "module": "es2015",
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "target": "es5",
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-        "lib": [
-            "es2017",
-            "dom"
-        ],
-        "paths": {
-            "@kosmo/core": [
-                "lib/core/src/public_api"
-            ],
-            "@kosmo/tabs": [
-                "lib/tabs/src/public_api"
-            ],
-            "@kosmo/checkbox": [
-                "lib/checkbox/src/public_api"
-            ],
-            "@kosmo/button": [
-                "lib/button/src/public_api"
-            ],
-            "@kosmo/progress-timer": [
-                "lib/progress-timer/src/public_api"
-            ],
-            "@kosmo/expansion-tabs": [
-                "lib/expansion-tabs/src/public_api"
-            ],
-            "button": [
-                "dist/button",
-                "dist/button"
-            ],
-            "button/*": [
-                "dist/button/*",
-                "dist/button/*"
-            ],
-            "core": [
-                "dist/core"
-            ],
-            "core/*": [
-                "dist/core/*"
-            ],
-            "tabs": [
-                "dist/tabs"
-            ],
-            "tabs/*": [
-                "dist/tabs/*"
-            ],
-            "expansion-tabs": [
-                "dist/expansion-tabs"
-            ],
-            "expansion-tabs/*": [
-                "dist/expansion-tabs/*"
-            ],
-            "checkbox": [
-                "dist/checkbox"
-            ],
-            "checkbox/*": [
-                "dist/checkbox/*"
-            ]
-        }
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@kosmo/core": [
+        "lib/core/src/public_api"
+      ],
+      "@kosmo/tabs": [
+        "lib/tabs/src/public_api"
+      ],
+      "@kosmo/checkbox": [
+        "lib/checkbox/src/public_api"
+      ],
+      "@kosmo/button": [
+        "lib/button/src/public_api"
+      ],
+      "@kosmo/progress-timer": [
+        "lib/progress-timer/src/public_api"
+      ],
+      "@kosmo/expansion-tabs": [
+        "lib/expansion-tabs/src/public_api"
+      ],
+      "@kosmo/alert": [
+        "lib/alert/src/public_api"
+      ],
+      "@kosmo/side-nav": [
+        "lib/side-nav/src/public_api"
+      ],
+		"@kosmo/smart-contenteditable": [
+			"lib/smart-contenteditable/src/public_api"
+		],
+      "button": [
+        "dist/button",
+        "dist/button"
+      ],
+      "button/*": [
+        "dist/button/*",
+        "dist/button/*"
+      ],
+      "core": [
+        "dist/core"
+      ],
+      "core/*": [
+        "dist/core/*"
+      ],
+      "tabs": [
+        "dist/tabs"
+      ],
+      "tabs/*": [
+        "dist/tabs/*"
+      ],
+      "expansion-tabs": [
+        "dist/expansion-tabs"
+      ],
+      "expansion-tabs/*": [
+        "dist/expansion-tabs/*"
+      ],
+      "checkbox": [
+        "dist/checkbox"
+      ],
+      "checkbox/*": [
+        "dist/checkbox/*"
+      ],
+      "alert": [
+        "dist/alert"
+      ],
+      "alert/*": [
+        "dist/alert/*"
+      ],
+      "sidenav": [
+        "dist/sidenav"
+      ],
+      "sidenav/*": [
+        "dist/sidenav/*"
+      ],
+      "smart-contenteditable": [
+        "dist/smart-contenteditable"
+      ],
+      "smart-contenteditable/*": [
+        "dist/smart-contenteditable/*"
+      ]
     }
+  }
 }

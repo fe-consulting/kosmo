@@ -2,7 +2,7 @@
     <div *ngFor="let tab of tabs"
          class="tab"
          role="button"
-         [class.active]="tab.active"
+         [class.active]="tab.isActive"
          (click)="tabClicked(tab)">
         <span>
             {{ tab.heading }}

@@ -1,0 +1,7 @@
+<k-tabs>
+	<k-tab *ngIf="template" heading="Template" [active]="true">
+		<pre class="prettyprint linenums">{{ template }}</pre>
+	</k-tab>
+	<k-tab *ngIf="component" heading="Component">{{ component }}</k-tab>
+	<k-tab *ngIf="style" heading="Style">{{ style }}</k-tab>
+</k-tabs>

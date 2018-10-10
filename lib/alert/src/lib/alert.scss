@@ -1,0 +1,18 @@
+@import "alert-mixin";
+@import "alert-theme";
+
+k-alert, [k-alert] {
+	@include alert-mixin($alert-theme-base);
+
+	.alert-close-button {
+		@include close-alert-mixin($close-alert-button-theme);
+	}
+}
+
+k-alert.danger, [k-alert].danger {
+	@include alert-variation-mixin($alert-theme-danger)
+}
+
+k-alert.primary, [k-alert].primary {
+	@include alert-variation-mixin($alert-theme-primary)
+}

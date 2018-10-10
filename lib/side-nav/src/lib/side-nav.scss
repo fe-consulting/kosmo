@@ -1,0 +1,59 @@
+@import "variables";
+
+$sidenav-border-color: darken($white-dark, 10%) !default;
+$sidenav-width: 250px !default;
+
+k-side-nav {
+	position: fixed;
+	display: block;
+	left: 0;
+	width: $sidenav-width;
+	background: $white-dark;
+	margin: 1rem 0.5rem;
+	box-shadow: $box-shadow-base;
+}
+
+k-side-nav k-side-nav-section:first-child .heading {
+	border-top-color: transparent;
+}
+
+k-side-nav-item.heading {
+	font-weight: 600;
+	border-bottom: 1px solid $sidenav-border-color;
+	border-top: 1px solid $sidenav-border-color;
+	font-size: 13px;
+	color: $color-primary-darker;
+	position: relative;
+	transition: all 0.25s;
+	cursor: pointer;
+
+	k-arrow-icon {
+		position: absolute;
+		right: 0.75rem;
+		top: 0.5rem;
+	}
+
+	&:hover {
+		background: darken($white-dark, 10%);
+	}
+}
+
+k-side-nav-item {
+	display: block;
+	padding: 0 0.75rem;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+k-side-nav-item a {
+	text-decoration: none;
+	color: $color-primary;
+	transition: color 0.2s;
+
+	&.active,
+	&:hover {
+		color: $blue;
+	}
+}

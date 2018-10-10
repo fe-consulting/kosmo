@@ -1,0 +1,30 @@
+@mixin close-alert-mixin($theme) {
+	position: absolute;
+	right: map-get($theme, 'right');
+	top: map-get($theme, 'top');
+	cursor: pointer;
+	transition: all 0.25s;
+
+	&:hover {
+		transform: scale(map-get($theme, 'scale'));
+	}
+}
+
+@mixin alert-mixin($theme) {
+	display: block;
+	position: relative;
+	padding: map-get($theme, 'padding');
+	border-radius: map-get($theme, 'border-radius');
+	box-shadow: map-get($theme, 'box-shadow');
+}
+
+@mixin alert-variation-mixin($theme) {
+	background: map-get($theme, 'background');
+	border: map-get($theme, 'border');
+	color: map-get($theme, 'color');
+
+	.heading {
+		margin: 0 0 0.75rem;
+		font-size: 18px;
+	}
+}

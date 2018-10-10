@@ -1,0 +1,28 @@
+@import 'variables';
+
+$alert-padding: 1rem !default;
+$alert-border-radius: 1px;
+
+$alert-theme-base: (
+	padding: $alert-padding,
+	border-radius: $alert-border-radius,
+	box-shadow: $box-shadow-lg
+) !default;
+
+$alert-theme-primary: map_merge($alert-theme-base, (
+	background: $blue,
+	color: $white
+)
+) !default;
+
+$alert-theme-danger: map_merge($alert-theme-base, (
+	background: $red,
+	color: $white
+)
+) !default;
+
+$close-alert-button-theme: (
+	right: 0.75rem,
+	top: 0.75rem,
+	scale: 1.25
+)

@@ -1,0 +1,43 @@
+<div fxLayout="column" fxLayoutGap="1.5rem">
+	<h2 class="h2">Alerts</h2>
+
+	<div>
+		<h3 class="h3">
+			Alert Primary
+		</h3>
+
+		<k-alert class="primary" [dismiss]="false">
+			<h3 class="heading">Primary</h3>
+
+			<div>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+			</div>
+		</k-alert>
+	</div>
+
+	<div>
+		<app-code [component]="'HA'" [template]="demos.alertPrimary.template"></app-code>
+	</div>
+
+	<div>
+		<h3 class="h3">Alert Danger</h3>
+
+		<k-alert class="danger">
+			<h3 class="heading">Danger</h3>
+
+			<div>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+			</div>
+		</k-alert>
+	</div>
+
+	<div>
+		<app-code [component]="'HA'" [template]="demos.alertPrimary.template"></app-code>
+	</div>
+
+	<div>
+		<h2>API</h2>
+	</div>
+</div>

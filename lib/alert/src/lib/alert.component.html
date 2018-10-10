@@ -1,0 +1,10 @@
+<div role="alert">
+	<span *ngIf="dismiss"
+		  (click)="close()"
+		  role="button"
+		  class="material-icons alert-close-button">
+		close
+	</span>
+
+	<ng-content></ng-content>
+</div>

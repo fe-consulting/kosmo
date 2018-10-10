@@ -1,96 +1,128 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	EventEmitter,
+	Input,
+	OnInit,
+	Output,
+} from '@angular/core';
+
 import { NEVER, Observable, Subject, timer } from 'rxjs';
-import { map, share, startWith, switchMap, takeWhile, tap } from 'rxjs/operators';
+
+import {
+	map,
+	share,
+	startWith,
+	switchMap,
+	takeWhile,
+	tap,
+} from 'rxjs/operators';
 
 const K = 1000;
 const toMinutesDisplay = (ms: number) => Math.floor(ms / K / 60);
 const toSecondsDisplay = (ms: number) => Math.floor(ms / K) % 60;
 
 @Component({
-    selector: 'k-progress-timer',
-    templateUrl: `./progress-timer.component.html`,
-    styleUrls: ['./progress-timer.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'k-progress-timer',
+	templateUrl: `./progress-timer.component.html`,
+	styleUrls: ['./progress-timer.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressTimerComponent implements OnInit {
-    private toggle$ = new Subject();
-    private current: number;
-    private running: boolean;
-    private timer$: Observable<number>;
+	private toggle$ = new Subject();
+	private current: number;
+	private running: boolean;
+	private timer$: Observable<number>;
 
-    @Input() public time: number;
-    @Input() public interval = 1000;
-    @Input() public run = true;
-    @Input() public displayTime = true;
+	@Input()
+	public time: number;
 
-    @Output() public complete: EventEmitter<void> = new EventEmitter();
+	@Input()
+	public interval = 1000;
 
-    public percent$: Observable<number>;
-    public minutes$: Observable<string>;
-    public seconds$: Observable<string>;
+	@Input()
+	public autorun = true;
 
-    public ngOnInit() {
-        this.current = this.time;
-        this.createTimer(this.time, this.run);
-    }
+	@Input()
+	public displayTime = true;
 
-    public createTimer(time: number, run: boolean) {
-        const currentSeconds = () => time / this.interval;
-        const toMs = (t: number) => t * this.interval;
-        const toPercent = (t: number) => (t / (this.time / this.interval)) * 100;
-        const toSeconds = (t: number) => currentSeconds() - t;
+	@Output()
+	public complete: EventEmitter<void> = new EventEmitter();
 
-        this.timer$ = timer(0, this.interval).pipe(
-            tap((s) => this.current = time - (s * K)),
-            map(toSeconds),
-            takeWhile(t => t >= 0),
-            share()
-        );
+	public percent$: Observable<number>;
+	public minutes$: Observable<string>;
+	public seconds$: Observable<string>;
 
-        const time$ = this.toggle$.pipe(
-            startWith(run),
-            tap(running => this.running = running),
-            switchMap((running: boolean) => (running ? this.timer$ : NEVER)),
-            share()
-        );
+	public ngOnInit() {
+		this.current = this.time;
+		this.createTimer(this.time, this.autorun);
+	}
 
-        const ms$ = time$.pipe(map(toMs), share());
-        this.percent$ = time$.pipe(map(toPercent), startWith(toPercent(time / K)));
+	public createTimer(time: number, run: boolean) {
+		const currentSeconds = () => time / this.interval;
+		const toMs = (t: number) => t * this.interval;
+		const toPercent = (t: number) =>
+			(t / (this.time / this.interval)) * 100;
+		const toSeconds = (t: number) => currentSeconds() - t;
 
-        this.minutes$ = ms$.pipe(
-            map(toMinutesDisplay),
-            map(s => s.toString()),
-            startWith(toMinutesDisplay(time)),
-        );
+		this.timer$ = timer(0, this.interval).pipe(
+			tap(s => (this.current = time - s * K)),
+			map(toSeconds),
+			takeWhile(t => t >= 0),
+			share()
+		);
 
-        this.seconds$ = ms$.pipe(
-            map(toSecondsDisplay),
-            map(s => s < 10 ? `0${s}` : s.toString()),
-            startWith(toSecondsDisplay(time))
-        );
+		const time$ = this.toggle$.pipe(
+			startWith(run),
+			tap(running => (this.running = running)),
+			switchMap((running: boolean) => (running ? this.timer$ : NEVER)),
+			share()
+		);
 
-        time$.subscribe({complete: () => this.complete.emit()});
-    }
+		const ms$ = time$.pipe(
+			map(toMs),
+			share()
+		);
 
-    public start() {
-        this.toggle$.next(true);
-    }
+		this.percent$ = time$.pipe(
+			map(toPercent),
+			startWith(toPercent(time / K))
+		);
 
-    public reset() {
-        this.current = this.time;
-        this.createTimer(this.time, true);
-    }
+		this.minutes$ = ms$.pipe(
+			map(toMinutesDisplay),
+			map(s => s.toString()),
+			startWith(toMinutesDisplay(time))
+		);
 
-    public resume() {
-        if (this.running) {
-            return;
-        }
+		this.seconds$ = ms$.pipe(
+			map(toSecondsDisplay),
+			map(s => (s < 10 ? `0${s}` : s.toString())),
+			startWith(toSecondsDisplay(time))
+		);
 
-        this.createTimer(this.current, true);
-        this.toggle$.next(true);
-    }
+		time$.subscribe({ complete: () => this.complete.emit() });
+	}
 
-    public pause() {
-        this.toggle$.next(false);
-    }
+	public start() {
+		this.toggle$.next(true);
+	}
+
+	public reset() {
+		this.current = this.time;
+		this.createTimer(this.time, true);
+	}
+
+	public resume() {
+		if (this.running) {
+			return;
+		}
+
+		this.createTimer(this.current, true);
+		this.toggle$.next(true);
+	}
+
+	public pause() {
+		this.toggle$.next(false);
+	}
 }

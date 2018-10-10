@@ -1,0 +1,7 @@
+k-arrow-icon {
+	transition: transform 0.3s;
+}
+
+k-arrow-icon.down {
+	transform: rotate(180deg);
+}

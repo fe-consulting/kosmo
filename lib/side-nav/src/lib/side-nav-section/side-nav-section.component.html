@@ -1,0 +1,9 @@
+<k-side-nav-item class="heading" role="button" (click)="toggle()">
+	<span>{{ heading }}</span>
+
+	<k-arrow-icon [down]="open"></k-arrow-icon>
+</k-side-nav-item>
+
+<ng-container *ngIf="open">
+	<ng-content></ng-content>
+</ng-container>

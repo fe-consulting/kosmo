@@ -1,0 +1,11 @@
+<div fxLayout="column" fxLayoutGap="1.5rem">
+	<h2 class="h2">Smart Content editable</h2>
+
+	<form [formGroup]="formGroup">
+		<div kSmartContentEditable
+			 spellcheck="false"
+			 [suggestions]="suggestions"
+			 [formControlName]="'frameworks'">
+		</div>
+	</form>
+</div>

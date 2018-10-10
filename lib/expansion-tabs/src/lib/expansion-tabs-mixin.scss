@@ -23,14 +23,6 @@
 
     .arrow {
         float: right;
-
-        svg {
-            transition: transform 0.3s;
-        }
-    }
-
-    .active .arrow svg {
-        transform: rotate(180deg);
     }
 
     .tab-content {
